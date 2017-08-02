@@ -1,10 +1,19 @@
-<div>
-  <table>
+<div class="col-sm-12 padding-md">
+  <table class="table-bordered table table-responsive">
+    <thead>
+      <tr>
+        <th>$key</th>
+        <th>科目</th>
+        <th>课时</th>
+        <th>描述</th>
+      </tr>
+    </thead>
     <tbody>
     <tr *ngFor="let lesson of lessons">
-      <td>$key = {{lesson.$key}}</td>
-      <td>科目：{{lesson.title}}</td>
-      <td>描述：{{lesson.description}}</td>
+      <td>{{lesson.$key}}</td>
+      <td>{{lesson.isFirst}}</td>
+      <td>{{lesson.hour}}小时</td>
+      <td>{{lesson.description}}</td>
     </tr>
     </tbody>
   </table>
