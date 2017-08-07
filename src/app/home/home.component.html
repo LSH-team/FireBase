@@ -1,5 +1,14 @@
 <div class="col-sm-12 padding-md">
   <h2>Firebase demo</h2>
-  <h4>Total Lessons: {{lessons?.length}}</h4>
-  <lesson-list [lessons]="lessons"></lesson-list>
+  <div class="m-md">
+    <h4>Total Lessons: {{allLessons?.length}}</h4>
+    <input type="text" class="form-control m-md" placeholder="Search" (keyup)="search(input.value)" #input>
+    <lesson-list [lessons]="filtered"></lesson-list>
+  </div>
+  <div class="m-md">
+    <h4>Total Courses: {{allCourses?.length}}</h4>
+    <div *ngFor="let course of allCourses">
+      <courses-list [course]="course"></courses-list>
+    </div>
+  </div>
 </div>
