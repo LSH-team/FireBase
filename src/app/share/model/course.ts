@@ -2,19 +2,17 @@
 export class Course {
 
   constructor(
+    public key: string,
     public title: string,
+    public url: string,
     public description: string,
   ){}
-
-  get isFirst() {
-    return this.title;
-  }
 
   static fromJsonList(array): Course[] {
     return array.map(Course.fromJson);
   }
 
-  static fromJson({title, description}): Course {
-    return new Course(title, description);
+  static fromJson({key, title, description, url}): Course {
+    return new Course(key, title, description, url);
   }
 }

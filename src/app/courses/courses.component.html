@@ -1,6 +1,11 @@
+<h4>Total Courses: {{courses?.length}}</h4>
 <table class="table table-responsive table-bordered">
   <tr *ngFor="let course of courses">
+    <td>{{course.key}}</td>
     <td>{{course.title}}</td>
     <td>{{course.description}}</td>
+    <td>
+      <button class="btn btn-sm btn-primary" [routerLink]="course.key">{{course.title}}</button>
+    </td>
   </tr>
 </table>

@@ -9,13 +9,14 @@ import {Course} from "../share/model/course";
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-  @Input() course: Course;
-  courses: Observable<Course[]>;
+  // @Input() course: Course;
+  courses: Course[];
 
   constructor(private coursesService: CoursesService) { }
 
   ngOnInit() {
-    this.courses = this.coursesService.findAllCourses();
+    this.coursesService.findAllCourses()
+      .subscribe(courses => this.courses = courses);
   }
 
 }

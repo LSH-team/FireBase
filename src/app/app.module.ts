@@ -13,16 +13,15 @@ import {RouterModule} from "@angular/router";
 import {RouterConfig} from "./router.config";
 import { CoursesComponent } from './courses/courses.component';
 import {CoursesService} from "./share/model/courses.service";
-
-
-
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LessonListComponent,
-    CoursesComponent
+    CoursesComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,

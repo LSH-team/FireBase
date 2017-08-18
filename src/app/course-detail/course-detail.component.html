@@ -1,0 +1,4 @@
+<h2>{{(courses | async)?.description}}</h2>
+<div>
+  <lesson-list [lessons]="lessons | async"></lesson-list>
+</div>

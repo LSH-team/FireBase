@@ -5,10 +5,5 @@
     <input type="text" class="form-control m-md" placeholder="Search" (keyup)="search(input.value)" #input>
     <lesson-list [lessons]="filtered"></lesson-list>
   </div>
-  <div class="m-md">
-    <h4>Total Courses: {{allCourses?.length}}</h4>
-    <div *ngFor="let course of allCourses">
-      <courses-list [course]="course"></courses-list>
-    </div>
-  </div>
+  <a class="btn btn-sm btn-primary pull-right" [routerLink]="['../courses']">To Courses</a>
 </div>
