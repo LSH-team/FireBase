@@ -29,7 +29,8 @@ export class CoursesService {
   findLessonKeysPerCourseUrl(courseUrl: string): Observable<string[]> {
     return this.findCourseByUrl(courseUrl)
       .switchMap(course => this.db.list('lessonsPerCourse/' + course.key))
-      // .map(lspc => lspc.map(lpc => lpc.key));
+      .do(console.log)
+      .map(lspc => lspc.map(lpc => lpc.$key));
   }
 
   findLessonsForCourse(courseUrl: string): Observable<Lesson[]> {
