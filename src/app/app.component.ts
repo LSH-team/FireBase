@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
     // const testArr$ = af.object('age');
     //
     // testArr$.subscribe(console.log);
+
   }
 
 
