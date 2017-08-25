@@ -1,6 +1,6 @@
 import {Component, enableProdMode, OnInit} from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
-enableProdMode()
+enableProdMode();
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
