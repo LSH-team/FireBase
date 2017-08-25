@@ -1,0 +1,24 @@
+<form #form [formGroup]="form" autocomplete="off" novalidate>
+  <div class="col-sm-12 form-group">
+    <label class="control-label">Description</label>
+    <input class="form-control" type="text">
+  </div>
+  <div class="col-sm-12 form-group">
+    <label class="control-label">time</label>
+    <input class="form-control" type="number">
+  </div>
+  <div class="col-sm-12 form-group">
+    <label class="control-label">url</label>
+    <input class="form-control" type="text">
+  </div>
+  <div class="col-sm-12 form-group">
+    <label class="control-label">title</label>
+    <input class="form-control" type="text">
+  </div>
+  <div class="col-sm-12 form-group">
+    <label class="control-label">key</label>
+    <input class="form-control" type="text">
+  </div>
+</form>
+
+<button class="btn btn-primary" (click)="save(form.value)">Save New Lesson</button>

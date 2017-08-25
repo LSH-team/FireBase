@@ -1,11 +1,16 @@
-<h4>Total Courses: {{courses?.length}}</h4>
-<table class="table table-responsive table-bordered">
-  <tr *ngFor="let course of courses">
-    <td>{{course.key}}</td>
-    <td>{{course.title}}</td>
-    <td>{{course.description}}</td>
-    <td>
-      <button class="btn btn-sm btn-primary" [routerLink]="course.key">{{course.title}}</button>
-    </td>
-  </tr>
-</table>
+<div class="p-md">
+  <h4>Total Courses: {{courses?.length}}</h4>
+  <div class="col-sm-12" style="clear: both;">
+    <div *ngFor="let course of this.courses" class="clearfix">
+      <div class="form-group col-sm-2 pull-left clearfix">
+        <img src="{{course.iconUrl}}" class="pull-left" style="width: 50px; height: 50px;">
+      </div>
+      <div class="form-group col-sm-6 pull-left">
+        <h3 class="">{{course.description}}</h3>
+      </div>
+      <div class="form-group col-sm-3 pull-left">
+        <a class="btn btn-info btn-sm" [routerLink]="[course.url]">View</a>
+      </div>
+    </div>
+  </div>
+</div>

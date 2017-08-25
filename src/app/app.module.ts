@@ -14,6 +14,9 @@ import {RouterConfig} from "./router.config";
 import { CoursesComponent } from './courses/courses.component';
 import {CoursesService} from "./share/model/courses.service";
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TopMenuComponent } from './top-menu/top-menu.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,14 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
     HomeComponent,
     LessonListComponent,
     CoursesComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    NewLessonComponent,
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     RouterModule.forRoot(RouterConfig)

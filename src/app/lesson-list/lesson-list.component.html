@@ -1,24 +1,12 @@
-<div class="col-sm-12 padding-md">
-  <table class="table-bordered table table-responsive">
-    <thead>
-      <tr>
-        <th>$key</th>
-        <th>科目</th>
-        <th>课时</th>
-        <th>描述</th>
-        <th>URL</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let lesson of lessons">
-      <td>{{lesson.key}}</td>
-      <td>{{lesson.isFirst}}</td>
-      <td>{{lesson.hour}}小时</td>
-      <td>{{lesson.description}}</td>
-      <td>
-        <a href="lesson.url">{{lesson.url}}</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<div class="border-left border-right border-top lesson-list">
+  <div class="clearfix border-bottom p-md text-left"  *ngFor="let lesson of lessons">
+    <div class="col-sm-10 pull-left">
+      <h3 class="control-label block">{{lesson.description}}</h3>
+      <div>{{lesson.longDescription}}</div>
+    </div>
+    <div class="col-sm-2 pull-left">
+      <li class="glyphicon glyphicon-time" style="font-size: 26px;"></li>
+      <div class="m-t-sm">{{lesson.duration}}</div>
+    </div>
+  </div>
 </div>

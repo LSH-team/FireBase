@@ -1,9 +1,23 @@
-<div class="col-sm-12 padding-md">
+<div class="col-sm-12 padding-md text-center" style="position:relative;">
   <h2>Firebase demo</h2>
   <div class="m-md">
-    <h4>Total Lessons: {{allLessons?.length}}</h4>
-    <input type="text" class="form-control m-md" placeholder="Search" (keyup)="search(input.value)" #input>
-    <lesson-list [lessons]="filtered"></lesson-list>
+    <button class="btn btn-primary m-r-sm" (click)="onListPush()">List Push</button>
+    <button class="btn btn-warning m-r-sm" (click)="onListRemove()">List Remove</button>
+    <button class="btn btn-success m-r-sm" (click)="onListUpdate()">List Update</button>
+    <button class="btn btn-default m-r-sm" (click)="onObjectUpdate()">Object Update</button>
+    <button class="btn btn-info" (click)="onObjectSet()">Object Set</button>
+    <button class="btn btn-danger" (click)="onObjectRemove()">Object Remove</button>
   </div>
-  <a class="btn btn-sm btn-primary pull-right" [routerLink]="['../courses']">To Courses</a>
+  <div class="m-md clearfix">
+    <h4>Total Lessons: {{allLessons?.length}}</h4>
+    <div class="form-group col-sm-6">
+      <input type="text" class="form-control m-md" placeholder="Search" (keyup)="search(input.value)" #input>
+    </div>
+    <div class="form-group col-sm-6 m-t-md">
+      <button class="btn btn-success" routerLink="new">Add Lesson</button>
+    </div>
+    <div class="clearfix" style="width: 400px; position: relative; left: 50%;top: 100px; clear:  both !important;">
+      <lesson-list [lessons]="filtered" ></lesson-list>
+    </div>
+  </div>
 </div>

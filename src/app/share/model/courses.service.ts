@@ -8,6 +8,7 @@ import {Lesson} from "./lesson";
 export class CoursesService {
 
   constructor(private db: AngularFireDatabase) {
+
   }
 
   findAllCourses(): Observable<Course[]> {
@@ -20,7 +21,7 @@ export class CoursesService {
    return this.db.list('courses', {
       query: {
         orderByChild: 'key',
-        equalTo: parseInt(courseUrl, 0)
+        equalTo: courseUrl
       }
     })
      .map(results => results[0]);
@@ -28,7 +29,7 @@ export class CoursesService {
 
   findLessonKeysPerCourseUrl(courseUrl: string): Observable<string[]> {
     return this.findCourseByUrl(courseUrl)
-      .switchMap(course => this.db.list('lessonsPerCourse/' + course.key))
+      .switchMap(course => this.db.list('lessonsPerCourse/' + course.$key))
       .do(console.log)
       .map(lspc => lspc.map(lpc => lpc.$key));
   }

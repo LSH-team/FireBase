@@ -2,22 +2,21 @@
 export class Lesson {
 
   constructor(
-    public key: string,
-    public title: string,
-    public hour: number,
+    public $key: string,
+    public courseId: string,
     public description: string,
-    public url: string
+    public duration: string,
+    public longDescription: string,
+    public url: string,
+    public videoUrl: string,
+    public tags: string
   ){}
-
-  get isFirst() {
-      return this.title;
-  }
 
   static fromJsonList(array): Lesson[] {
       return array.map(Lesson.fromJson);
   }
 
-  static fromJson({key, title, hour, description, url}): Lesson {
-      return new Lesson(key, title, hour, description, url);
+  static fromJson({$key, courseId, description, duration, longDescription, url, videoUrl, tags}): Lesson {
+      return new Lesson($key, courseId, description, duration, longDescription, url, videoUrl, tags);
   }
 }
