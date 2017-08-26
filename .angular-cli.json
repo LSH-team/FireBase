@@ -20,9 +20,14 @@
       "prefix": "app",
       "styles": [
         "assets/css/bootstrap.min.css",
+        "assets/css/animate.css",
+        "assets/css/plugins/sweetalert/sweetalert.css",
         "assets/css/style.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/js/jquery-3.1.1.min.js",
+        "assets/js/plugins/sweetalert/sweetalert.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

@@ -3,6 +3,7 @@
  import {CourseDetailComponent} from "./course-detail/course-detail.component";
  import {CoursesComponent} from "./courses/courses.component";
  import {NewLessonComponent} from "./new-lesson/new-lesson.component";
+ import {LessonDetailComponent} from "./lesson-detail/lesson-detail.component";
 
  export const RouterConfig: Route[] = [
    {
@@ -31,13 +32,17 @@
        }
      ]
    },
-   // {
-   //   path: '',
-   //   redirectTo: 'home',
-   //   pathMatch: 'full'
-   // },
-   // {
-   //   path: '**',
-   //   redirectTo: 'home'
-   // }
+   {
+     path: 'lessons/:id',
+     component: LessonDetailComponent
+   },
+   {
+     path: '',
+     redirectTo: 'home',
+     pathMatch: 'full'
+   },
+   {
+     path: '**',
+     redirectTo: 'home'
+   }
  ];

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Lesson} from "../share/model/lesson";
 import {DomSanitizer} from "@angular/platform-browser";
 
@@ -8,7 +8,11 @@ import {DomSanitizer} from "@angular/platform-browser";
   styleUrls: ['./lesson-list.component.scss']
 })
 export class LessonListComponent implements OnInit {
-  @Input() lessons: Lesson[];
+  @Input()
+  lessons: Lesson[];
+
+  @Output('lesson')
+  lessonEmitter = new EventEmitter<Lesson>();
 
   constructor(private sanitizer: DomSanitizer) { }
 
@@ -17,5 +21,9 @@ export class LessonListComponent implements OnInit {
 
   videoToUrl (url) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  selectLesson(lesson: Lesson) {
+    this.lessonEmitter.emit(lesson);
   }
 }
