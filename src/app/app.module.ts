@@ -18,6 +18,7 @@ import {NewLessonComponent} from './new-lesson/new-lesson.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TopMenuComponent} from './top-menu/top-menu.component';
 import {LessonDetailComponent} from './lesson-detail/lesson-detail.component';
+import { SafeUrlPipe } from './share/security/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {LessonDetailComponent} from './lesson-detail/lesson-detail.component';
     CourseDetailComponent,
     NewLessonComponent,
     TopMenuComponent,
-    LessonDetailComponent
+    LessonDetailComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,

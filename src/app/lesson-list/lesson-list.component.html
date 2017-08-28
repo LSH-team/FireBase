@@ -1,5 +1,5 @@
 <div class="border-left border-right border-top lesson-list">
-  <div class="clearfix border-bottom p-md text-left"  *ngFor="let lesson of lessons" (click)="selectLesson(lesson)">
+  <div class="clearfix border-bottom p-md text-left" style="cursor: pointer;" *ngFor="let lesson of lessons" (click)="selectLesson(lesson)">
     <div class="col-sm-10 pull-left">
       <h3 class="control-label block">{{lesson.description}}</h3>
       <div>{{lesson.longDescription}}</div>

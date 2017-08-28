@@ -1,3 +1,17 @@
-<p>
-  lesson-detail works!
-</p>
+<div class="text-center" style="margin: 30px auto; width: 500px;">
+  <button class="btn btn-default btn-md pull-left" (click)="previous()">Previous</button>
+  <button class="btn btn-md btn-primary pull-right" (click)="next()">Next</button>
+  <div class="col-sm-12 m-t-md m-b-lg">
+    <h2>{{lesson?.description}}</h2>
+    <h3>Duration: {{lesson?.duration}}</h3>
+    <iframe *ngIf="lesson?.videoUrl" width="260" height="150" frameborder="0" allowfullscreen [src]="lesson?.videoUrl | safeUrl">
+    </iframe>
+
+    <h2>Description</h2>
+    <p class="h4">{{lesson?.longDescription}}</p>
+  </div>
+  <div class="col-sm-12 m-t-md">
+    <button class="pull-left btn btn-md btn-info" (click)="edit()">Edit Lesson</button>
+    <button class="pull-right btn btn-md btn-danger" (click)="delete()">Delete</button>
+  </div>
+</div>
