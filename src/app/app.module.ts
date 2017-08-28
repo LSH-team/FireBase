@@ -18,7 +18,8 @@ import {NewLessonComponent} from './new-lesson/new-lesson.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TopMenuComponent} from './top-menu/top-menu.component';
 import {LessonDetailComponent} from './lesson-detail/lesson-detail.component';
-import { SafeUrlPipe } from './share/security/safe-url.pipe';
+import {SafeUrlPipe} from './share/security/safe-url.pipe';
+import {LessonFormComponent} from './lesson-form/lesson-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SafeUrlPipe } from './share/security/safe-url.pipe';
     NewLessonComponent,
     TopMenuComponent,
     LessonDetailComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    LessonFormComponent
   ],
   imports: [
     BrowserModule,

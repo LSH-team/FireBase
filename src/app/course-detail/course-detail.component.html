@@ -5,4 +5,5 @@
 <div class="text-center m-t-lg">
   <button class="btn btn-md btn-default" (click)="previous()">Previous Page</button>
   <button class="btn btn-md btn-primary m-l-sm" (click)="next()">Next Page</button>
+  <button class="btn btn-md btn-info m-l-sm" [routerLink]="['./new']" [queryParams]="{courseId: (courses | async)?.$key}">New Lesson</button>
 </div>

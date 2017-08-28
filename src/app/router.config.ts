@@ -12,10 +12,6 @@
        {
          path: '',
          component: HomeComponent
-       },
-       {
-         path: 'new',
-         component: NewLessonComponent
        }
      ]
    },
@@ -24,7 +20,16 @@
      children: [
        {
          path: ':id',
-         component: CourseDetailComponent
+         children: [
+           {
+             path: '',
+             component: CourseDetailComponent
+           },
+           {
+             path: 'new',
+             component: NewLessonComponent
+           }
+         ]
        },
        {
          path: '',

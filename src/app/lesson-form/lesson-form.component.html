@@ -1,0 +1,30 @@
+<form [formGroup]="form" autocomplete="off" novalidate>
+  <fieldset>
+    <legend>Lesson</legend>
+    <div class="col-sm-12 form-group">
+      <label class="control-label">Description</label>
+      <input class="form-control" formControlName="description" type="text">
+      <span class="label-danger" *ngIf="isErrorVisible('description', 'required')">field is mandatory</span>
+    </div>
+    <div class="col-sm-12 form-group">
+      <label class="control-label">Lesson Url:</label>
+      <input class="form-control" formControlName="url" type="text">
+      <span class="label-danger" *ngIf="isErrorVisible('url', 'required')">field is mandatory</span>
+    </div>
+    <div class="col-sm-12 form-group">
+      <label class="control-label">Video Url:</label>
+      <input class="form-control" formControlName="videoUrl" type="text">
+      <span class="label-danger" *ngIf="isErrorVisible('videoUrl', 'required')">field is mandatory</span>
+      <span class="label-danger" *ngIf="isErrorVisible('videoUrl', 'validUrl')">not a valid url</span>
+    </div>
+    <div class="col-sm-12 form-group">
+      <label class="control-label">Tags:</label>
+      <input class="form-control" formControlName="tags" type="text">
+      <span class="label-danger" *ngIf="isErrorVisible('tags', 'required')">field is mandatory</span>
+    </div>
+    <div class="col-sm-12 form-group">
+      <label class="control-label">Long Description:</label>
+      <textarea class="form-control" formControlName="longDescription" type="text" cols="4" rows="6" style="resize: none;"></textarea>
+    </div>
+  </fieldset>
+</form>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {LessonsService} from "../share/model/lessons.service";
 
 @Component({
   selector: 'app-new-lesson',
@@ -8,28 +10,24 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class NewLessonComponent implements OnInit {
 
-  form: FormGroup;
+  courseId: string;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private lessonsService: LessonsService) { }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      description: ['', Validators.required],
-      url: ['', Validators.required],
-      title: ['', Validators.required],
-      time: [0, Validators.required],
-      key: [0, Validators.required]
-    })
+    this.courseId = this.route.snapshot.queryParams['courseId'];
+    console.log(this.courseId)
   }
 
-  isErrorVisible(field: string, error: string) {
-    return this.form.controls[field].dirty
-      && this.form.controls[field].errors
-      && this.form.controls[field].errors[error];
-  }
-
-  save (values) {
-
+  save (form) {
+    this.lessonsService.createNewLesson(this.courseId, form.value)
+      .subscribe(
+        () => {
+          alert('lesson created successfully. Create another lesson ?');
+          form.reset();
+        },
+        err => alert(`error creating lesson ${err}`)
+      );
   }
 
 }
