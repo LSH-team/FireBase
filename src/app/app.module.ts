@@ -22,6 +22,8 @@ import {SafeUrlPipe} from './share/security/safe-url.pipe';
 import {LessonFormComponent} from './lesson-form/lesson-form.component';
 import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
 import {LessonResolver} from "./share/model/lesson.resolver";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {LessonResolver} from "./share/model/lesson.resolver";
     LessonDetailComponent,
     SafeUrlPipe,
     LessonFormComponent,
-    EditLessonComponent
+    EditLessonComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
