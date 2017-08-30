@@ -63,13 +63,7 @@ export class LessonsService {
 
   createNewLesson(courseId: string, lesson: any): Observable<any> {
     const lessonsToSave = Object.assign({}, lesson, {courseId});
-
-    console.log('lessonsToSave: ', lessonsToSave);
-
     const newLessonKey = this.sdkDb.child('lessons').push().key;
-
-    console.log(newLessonKey);
-
     let dataToSave = {};
     dataToSave[`lessons/` + newLessonKey] = lessonsToSave;
     dataToSave[`lessonsPerCourse/${courseId}/${newLessonKey}`] = true;
@@ -91,5 +85,15 @@ export class LessonsService {
         }
       );
     return subject.asObservable();
+  }
+
+  saveLesson(lessonId: string, lesson: any): Observable<Lesson> {
+    const lessonToSave = Object.assign({}, lesson);
+    delete (lessonToSave.$key);
+
+    let dataToSave = {};
+    dataToSave[`lessons/${lessonId}`] = lessonToSave;
+
+    return this.firebaseUpdate(dataToSave);
   }
 }

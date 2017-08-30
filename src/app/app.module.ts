@@ -20,6 +20,8 @@ import {TopMenuComponent} from './top-menu/top-menu.component';
 import {LessonDetailComponent} from './lesson-detail/lesson-detail.component';
 import {SafeUrlPipe} from './share/security/safe-url.pipe';
 import {LessonFormComponent} from './lesson-form/lesson-form.component';
+import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
+import {LessonResolver} from "./share/model/lesson.resolver";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {LessonFormComponent} from './lesson-form/lesson-form.component';
     TopMenuComponent,
     LessonDetailComponent,
     SafeUrlPipe,
-    LessonFormComponent
+    LessonFormComponent,
+    EditLessonComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import {LessonFormComponent} from './lesson-form/lesson-form.component';
     AngularFireDatabaseModule,
     RouterModule.forRoot(RouterConfig)
   ],
-  providers: [LessonsService, CoursesService],
+  providers: [LessonsService, CoursesService, LessonResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {

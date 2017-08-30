@@ -11,7 +11,7 @@
     <p class="h4">{{lesson?.longDescription}}</p>
   </div>
   <div class="col-sm-12 m-t-md">
-    <button class="pull-left btn btn-md btn-info" (click)="edit()">Edit Lesson</button>
+    <button class="pull-left btn btn-md btn-info" [routerLink]="['./edit']">Edit Lesson</button>
     <button class="pull-right btn btn-md btn-danger" (click)="delete()">Delete</button>
   </div>
 </div>

@@ -4,6 +4,8 @@
  import {CoursesComponent} from "./courses/courses.component";
  import {NewLessonComponent} from "./new-lesson/new-lesson.component";
  import {LessonDetailComponent} from "./lesson-detail/lesson-detail.component";
+ import {EditLessonComponent} from "./edit-lesson/edit-lesson.component";
+ import {LessonResolver} from "./share/model/lesson.resolver";
 
  export const RouterConfig: Route[] = [
    {
@@ -39,7 +41,19 @@
    },
    {
      path: 'lessons/:id',
-     component: LessonDetailComponent
+     children: [
+       {
+         path: '',
+         component: LessonDetailComponent
+       },
+       {
+         path: 'edit',
+         component: EditLessonComponent,
+         resolve: {
+           lesson: LessonResolver
+         }
+       }
+     ]
    },
    {
      path: '',
