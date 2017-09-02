@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Lesson} from "../share/model/lesson";
 import {LessonsService} from "../share/model/lessons.service";
@@ -8,14 +8,13 @@ import {LessonsService} from "../share/model/lessons.service";
   templateUrl: './lesson-detail.component.html',
   styleUrls: ['./lesson-detail.component.scss']
 })
-export class LessonDetailComponent implements OnInit {
+export class LessonDetailComponent implements OnInit, OnDestroy {
   lesson: Lesson;
   constructor(private route: ActivatedRoute, private lessonsService: LessonsService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.switchMap(params => {
       const lessonUrl = params['id'];
-      console.log(lessonUrl)
       return this.lessonsService.findLessonByUrl(lessonUrl);
     })
       .subscribe(lesson => this.lesson = lesson);
@@ -31,16 +30,20 @@ export class LessonDetailComponent implements OnInit {
       .subscribe(this.navigateToLesson.bind(this));
   }
 
-  edit() {
-
-  }
-
   delete() {
-
+    // this.lessonsService.lessonDelete(this.lesson.$key, this.lesson.courseId);
+    this.lessonsService.deleteLesson(this.lesson.$key)
+      .subscribe(
+        () => swal('删除成功', '', 'success')
+      );
   }
 
   navigateToLesson(lesson: Lesson) {
     this.router.navigate(['lessons', lesson.url]);
+  }
+
+  ngOnDestroy () {
+
   }
 
 }

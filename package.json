@@ -7,6 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "batch-server": "./node_modules/.bin/ts-node ./batch-server.ts",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -24,6 +25,7 @@
     "angularfire2": "^4.0.0-rc.1",
     "core-js": "^2.4.1",
     "firebase": "^4.2.0",
+    "firebase-queue": "^1.6.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

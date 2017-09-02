@@ -10,13 +10,13 @@
       <a [routerLink]="['./courses']" routerLinkActive="menu-active">COURSES</a>
     </li>
     <li>
-      <a routerLinkActive="menu-active" [routerLink]="['./login']">LOGIN</a>
+      <a routerLinkActive="menu-active" [routerLink]="['./login']" *ngIf="!authInfo?.isLoggedIn()">LOGIN</a>
     </li>
     <li>
-      <a routerLinkActive="menu-active" [routerLink]="['./register']">REGISTER</a>
+      <a routerLinkActive="menu-active" [routerLink]="['./register']" *ngIf="!authInfo?.isLoggedIn()">REGISTER</a>
     </li>
     <li>
-      <a routerLinkActive="menu-active">LOGOUT</a>
+      <a routerLinkActive="menu-active" *ngIf="authInfo?.isLoggedIn()" (click)="logout()">LOGOUT</a>
     </li>
   </ul>
 </header>

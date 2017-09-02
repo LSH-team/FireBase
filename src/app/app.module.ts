@@ -20,10 +20,14 @@ import {TopMenuComponent} from './top-menu/top-menu.component';
 import {LessonDetailComponent} from './lesson-detail/lesson-detail.component';
 import {SafeUrlPipe} from './share/security/safe-url.pipe';
 import {LessonFormComponent} from './lesson-form/lesson-form.component';
-import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
+import {EditLessonComponent} from './edit-lesson/edit-lesson.component';
 import {LessonResolver} from "./share/model/lesson.resolver";
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {AngularFireAuthModule} from "angularfire2/auth";
+import {AuthService} from "./share/security/auth.service";
+import {AuthGuard} from "./share/security/auth.guard";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -47,9 +51,11 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    HttpModule,
     RouterModule.forRoot(RouterConfig)
   ],
-  providers: [LessonsService, CoursesService, LessonResolver],
+  providers: [LessonsService, CoursesService, LessonResolver, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
