@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AngularFireAuth} from "angularfire2/auth";
 import {AuthService} from "../share/security/auth.service";
 import {Router} from "@angular/router";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Component({
   selector: 'app-login',
@@ -34,8 +35,12 @@ export class LoginComponent implements OnInit {
 
     this.authSerivce.login(formValue.email, formValue.password)
       .subscribe(
-        () => this.router.navigate(['./home']),
-        (err: any) => swal('email或密码错误！', '', 'warning')
+        (res: any) => {
+          console.log(res);
+          console.log(this.authSerivce.authInfo$);
+          this.router.navigate(['./home']);
+        },
+            (err: any) => swal('email或密码错误！', err, 'warning')
       )
   }
 

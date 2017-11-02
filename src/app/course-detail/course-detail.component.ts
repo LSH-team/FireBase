@@ -17,15 +17,18 @@ export class CourseDetailComponent implements OnInit {
   courses: Observable<Course>;
 
   constructor(private coursesService: CoursesService, private route: ActivatedRoute, private router: Router) {
+    route.params
+      .subscribe(params => {
+        this.courseUrl = params['id'];
+        this.courses = this.coursesService.findCourseByUrl(this.courseUrl);
+        // this.lessons = this.coursesService.findLessonsForCourse(courseUrl);
+        this.coursesService.loadFirstLessonsPage(this.courseUrl, 2)
+          .subscribe(lessons => this.lessons = lessons);
+
+      });
   }
 
   ngOnInit() {
-    this.courseUrl = this.route.snapshot.params['id'];
-    this.courses = this.coursesService.findCourseByUrl(this.courseUrl);
-    // this.lessons = this.coursesService.findLessonsForCourse(courseUrl);
-    this.coursesService.loadFirstLessonsPage(this.courseUrl, 2)
-      .subscribe(lessons => this.lessons = lessons);
-
   }
 
   previous() {

@@ -1,7 +1,10 @@
 <h2 class="text-center">{{(courses | async)?.description}}</h2>
-<div class="m-t-lg m-b-md">
+<div class="m-t-lg m-b-md" *ngIf="lessons else loadingLessons">
   <lesson-list [lessons]="lessons" (lesson)="navigateLessonDetail($event)"></lesson-list>
 </div>
+<ng-template #loadingLessons>
+  <div>Loading...</div>
+</ng-template>
 <div class="text-center m-t-lg">
   <button class="btn btn-md btn-default" (click)="previous()">Previous Page</button>
   <button class="btn btn-md btn-primary m-l-sm" (click)="next()">Next Page</button>

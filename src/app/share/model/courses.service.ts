@@ -15,6 +15,7 @@ export class CoursesService {
   findAllCourses(): Observable<Course[]> {
     return this.db.list('courses')
       // .do(console.log)
+      .first()
       .map(Course.fromJsonList);
   }
 
